@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center" style="color: #a4c700;">Фильтр книг по страницам</h2>
+    <div>
+        <p>Введите список книг в адресной строке браузера в следующем формате:</p>
+        <pre>?books=Любимый сад-200, Как сдать ЕГЭ?-120</pre>
+    </div>
+
+    {% if result %}
+    <h3 class="mt-4">Отсортированные книги:</h3>
+    <div class="border p-3 rounded" style="background-color: #fff; border: 2px solid black;">
+        {% for book in result %}
+        <p>{{ book }}</p>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>Введите список книг в строке браузера, как показано выше.</p>
+    {% endif %}
+</div>
+{% endblock %}

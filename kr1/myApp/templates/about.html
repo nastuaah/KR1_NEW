@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center" style="color: #a4c700; margin-top: -70px;">Я и моя образовательная программа</h2>
+
+    <div class="row mb-4">
+        <div class="col-md-4 text-center">
+            <img src="{{ student.photo }}" alt="Фото {{ student.name }}" class="img-fluid rounded shadow-sm" style="border-radius: 15px; max-height: 80%;">
+        </div>
+        <div class="col-md-8" style="margin-top: 20px;">
+            <h3>{{ student.name }}</h3>
+            <p><strong>Email:</strong> {{ student.email }}</p>
+            <p><strong>Телефон:</strong> {{ student.phone }}</p>
+            <h4>Бизнес-информатика</h4>
+            <p>{{ program_description }}</p>
+        </div>
+    </div>
+
+    <h3 class="text-center" style="color: #a4c700; margin-top: -80px;">Преподаватели</h3>
+    <div class="row">
+        {% for teacher in teachers %}
+        <div class="col-md-6 mb-4">
+            <div class="p-4 border border-dark rounded shadow-sm" style="background-color: #f8d9e1;">
+                <div class="text-center">
+                    <img src="{{ teacher.photo }}" alt="Фото {{ teacher.name }}" class="img-fluid rounded shadow-sm" style="border-radius: 15px; max-height: 200px; max-width: 200px;">
+                </div>
+                <h5 class="text-center mt-2">{{ teacher.name }}</h5>
+                <p class="text-center"><strong>Email:</strong> {{ teacher.email }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <h3 class="text-center mt-4" style="color: #a4c700;">Мои сокурсники</h3>
+    <div class="row">
+        {% for classmate in classmates %}
+        <div class="col-md-6 mb-4">
+            <div class="p-4 border border-dark rounded shadow-sm" style="background-color: #f8d9e1;">
+                <div class="text-center">
+                    <img src="{{ classmate.photo }}" alt="Фото {{ classmate.name }}" class="img-fluid rounded shadow-sm" style="border-radius: 15px; max-height: 200px; max-width: 200px;">
+                </div>
+                <h5 class="text-center mt-2">{{ classmate.name }}</h5>
+                <p class="text-center"><strong>Email:</strong> {{ classmate.email }}</p>
+                <p class="text-center"><strong>Телефон:</strong> {{ classmate.phone }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center" style="color: #a4c700; margin-top: -80px;" id="element1">Доставка и Оплата</h2>
+
+    <div class="p-4 border border-dark rounded shadow-sm" style="background-color: #f8d9e1; margin-top: 20px;">
+        <p class="lead">
+            <strong>Доставка букетов осуществляется круглосуточно.</strong><br>
+            Среднее время доставки — 90 минут от оформления заказа. <br>
+            <em>*Время доставки зависит от удаленности адреса и загруженности дорожного движения.</em><br>
+            Доставка по городу Нижний Новгород от 450 рублей.<br>
+            Исключение: особо отдаленные районы (7 микрорайон, аэропорт, Бор, отдаленные частные дома).<br>
+            Информацию о доставке можно уточнить у флориста.<br>
+            <strong>Рабочее время обработки заявок:</strong> с 9:00-21:00. Заказы после этого времени требуют подтверждения (необходимо позвонить флористу).
+        </p>
+        <p class="lead">
+            <strong>Способы оплаты заказа:</strong>
+            <ul class="lead">
+                <li>Оплата через платежные системы: VISA, MasterCard, ApplePay, GooglePay и др.</li>
+                <li>Оплата через расчетный счет для юр.лиц (предоставляем все необходимые документы).</li>
+            </ul>
+        </p>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="p-4 border border-dark rounded shadow-sm" style="background-color: #f8d9e1; margin-top: 35px;" >
+                <h2 class="text-center" id="element2">Связаться с нами</h2>
+                <p class="lead">
+                    <strong>Телефон:</strong><br>
+                    +7 (910) 790-45-35<br><br>
+                    <strong>Адрес:</strong><br>
+                    г. Н.Новгород, ул.Ильинская 31<br><br>
+                    <strong>Режим работы:</strong><br>
+                    Круглосуточно
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6 d-flex align-items-center justify-content-center">
+            <img src="/static/info.jpg" alt="Связаться с нами" class="img-fluid rounded shadow-sm" style="border-radius: 15px; max-width: 80%;">
+        </div>
+    </div>
+
+    <div class="mt-4 p-4 border border-dark rounded shadow-sm" style="background-color: #f8d9e1; margin-bottom: 20px;">
+        <h2 class="text-center" id="element3">Уход за букетом</h2>
+        <ol class="lead">
+            <li><strong>Подготовка вазы:</strong>
+                <ol>
+                    <li>Налейте в чистую вазу прохладную воду.</li>
+                </ol>
+            </li>
+            <li><strong>Подготовка стеблей:</strong>
+                <ol>
+                    <li>Уберите нижние листья со стеблей, чтобы они не находились в воде.</li>
+                    <li>Освежите срезы растений, подержав их под проточной водой.</li>
+                    <li>Используйте острый нож, делая срез под углом 45°.</li>
+                </ol>
+            </li>
+            <li><strong>Ежедневный уход:</strong>
+                <ol>
+                    <li>Меняйте воду в вазе ежедневно.</li>
+                    <li>Стебли необходимо обмывать под проточной водой.</li>
+                    <li>Регулярно обновляйте срезы растений.</li>
+                </ol>
+            </li>
+            <li><strong>Выбор места:</strong>
+                <ol>
+                    <li>Не ставьте вазу с букетом рядом с отопительными приборами.</li>
+                    <li>Избегайте сквозняков и мест под прямыми солнечными лучами.</li>
+                </ol>
+            </li>
+            <li><strong>Продление жизни цветов:</strong>
+                <ol>
+                    <li>Добавьте в воду специальные средства, такие как Chrysal или Floralife.</li>
+                </ol>
+            </li>
+        </ol>
+    </div>
+
+    <div class="mt-4 p-4 border border-dark rounded shadow-sm" style="background-color: #f8d9e1;">
+        <h2 class="text-center">Небольшие мелочи, которые могут Вам пригодиться</h2>
+
+        {% for category, items in extras.items %}
+            <h3 class="mt-4 text-center" style="color: #a4c700;">{{ category }}</h3>
+            <div class="row">
+                {% for item in items %}
+                    <div class="col-md-4 text-center">
+                        <img src="{{ item.image }}" alt="{{ item.name }}" class="img-fluid rounded shadow-sm" style="border-radius: 15px;  width: 250px; height: 300px;">
+                        <p class="lead">{{ item.name }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #a4c700; margin-top: 40px;">
+    <div class="container-fluid justify-content-center">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Переключить навигацию">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse lead" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#element1">Доставка и оплата</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#element2">Связаться с нами</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#element3">Уход за букетом</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+

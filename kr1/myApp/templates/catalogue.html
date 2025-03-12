@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center" style="margin-top: -90px; color: #a4c700;">Каталог букетов</h2>
+    <div class="row" style="margin-top: 20px;">
+        {% for bouquet in bouquets %}
+        <div class="col-md-4 mb-4">
+            <div class="card border-white">
+                <img src="{{ bouquet.image }}" class="card-img-top rounded" alt="{{ bouquet.name }}" style="border-radius: 15px;">
+                <div class="card-body text-center">
+                    <h5 class="card-title lead">{{ bouquet.name }}</h5>
+                    <p class="card-text lead">Цена: {{ bouquet.price }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
